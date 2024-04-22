@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+// Function to adjust the temperature of the air conditioner
+void adjustTemperature(int *temperature, int adjustment) {
+    *temperature += adjustment;
+}
+
+int main() {
+    int currentTemperature = 25; // Initial temperature setting
+    int choice, adjustment;
+
+    printf("Current temperature: %d\n", currentTemperature);
+
+    do {
+        // Display menu
+        printf("\nMenu:\n");
+        printf("1. Increase temperature\n");
+        printf("2. Decrease temperature\n");
+        printf("3. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("Enter the amount to increase temperature: ");
+                scanf("%d", &adjustment);
+                adjustTemperature(&currentTemperature, adjustment);
+                printf("Adjusted temperature: %d\n", currentTemperature);
+                break;
+            case 2:
+                printf("Enter the amount to decrease temperature: ");
+                scanf("%d", &adjustment);
+                adjustTemperature(&currentTemperature, -adjustment);
+                printf("Adjusted temperature: %d\n", currentTemperature);
+                break;
+            case 3:
+                printf("Exiting program\n");
+                break;
+            default:
+                printf("Invalid choice\n");
+        }
+    } while (choice != 3);
+
+    return 0;
+}
